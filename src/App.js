@@ -3,14 +3,13 @@ import Recipe from './components/Recipe';
 import './App.css';
 
 function App() {
-	const APP_ID = 'b60809b5';
-	const APP_KEY = '6cc9e16cf53887b425311fe333a3f1f4	';
-
 	const [recipes, setRecipes] = useState([]);
 	const [searchTerm, setSearchTerm] = useState('Banana');
 	const [inputValue, setInputValue] = useState('');
 
 	useEffect(() => {
+		const APP_ID = process.env.REACT_APP_ID;
+		const APP_KEY = process.env.REACT_APP_KEY;
 		const RECIPE_API_ENDPOINT = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}`;
 
 		const updateRecipeEndpoint = searchTerm => {
